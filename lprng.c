@@ -4,6 +4,13 @@
 #include "lauxlib.h"
 #include "lualib.h"
 #include <math.h>
+#if defined(__i386__)
+#define LPRNG_FASTCALL	__attribute__((fastcall))
+#elif defined(_M_IX86)
+#define LPRNG_FASTCALL	__fastcall
+#else
+#define LPRNG_FASTCALL
+#endif
 /* ------------------------------------------------------------------------ */
 
 /* This implements a Tausworthe PRNG with period 2^223. Based on:
@@ -32,7 +39,7 @@ typedef union {
   z = (((z<<q)^z) >> (k-s)) ^ ((z&((uint64_t)(int64_t)-1 << (64-k)))<<s); \
   r ^= z; rs->gen[i] = z;
 /* PRNG step function. Returns a double in the range 1.0 <= d < 2.0. */
-uint64_t __fastcall lj_math_random_step(struct RandomState *rs) {
+uint64_t LPRNG_FASTCALL lj_math_random_step(struct RandomState *rs) {
 	uint64_t z, r = 0;
 	TW223_GEN(0, 63, 31, 18, rs);
 	TW223_GEN(1, 58, 19, 28, rs);
