@@ -11,5 +11,8 @@ The PRNG generates the same sequences from the same seeds on all platforms and m
 Current version of LPRNG is tested on Lua 5.2
 
 # Build
+
 gcc.exe -O2 -O2 -Wall -g -DBUILD_DLL -IE:\lua\lua-5.2.4\src -IE:\lua\lua-5.2.4\src -c E:\code\LPRNG\trunk\lprng.c -o obj\Debug\lprng.o
+
 g++.exe -shared -Wl,--output-def=bin\Debug\libLPRNG.def -Wl,--out-implib=bin\Debug\libLPRNG.a -Wl,--dll -LE:\lua\lua-5.2.4\src -LE:\lua\lua-5.2.4\src obj\Debug\lprng.o  -o bin\Debug\LPRNG.dll -static-libgcc  -llua52
+
