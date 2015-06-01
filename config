@@ -2,3 +2,4 @@ LUA_INCLUDE=/home/pi/lua52/lua5.2.4/src
 LUA_LIB=$(LUA_INCLUDE)
 SO=LPRNG.so
 RM=rm
+CC=gcc
