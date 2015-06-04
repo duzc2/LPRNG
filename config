@@ -1,4 +1,4 @@
-LUA_INCLUDE=/home/pi/lua52/lua-5.2.4/src
+LUA_INCLUDE=/home/pi/c/lua52/lua-5.2.4/src
 LUA_LIB=$(LUA_INCLUDE)
 SO=LPRNG.so
 RM=rm
