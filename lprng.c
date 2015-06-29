@@ -57,8 +57,7 @@ static void random_init(struct RandomState *rs, double d) {
 		uint32_t m = 1u << (r & 255);
 		r >>= 8;
 		u.d = d = d * 3.14159265358979323846 + 2.7182818284590452354;
-		if (u.u64 < m)
-			u.u64 += m; /* Ensure k[i] MSB of gen[i] are non-zero. */
+		if (u.u64 < m) u.u64 += m; /* Ensure k[i] MSB of gen[i] are non-zero. */
 		rs->gen[i] = u.u64;
 	}
 	rs->valid = 1;
