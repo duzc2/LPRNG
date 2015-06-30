@@ -24,3 +24,5 @@ Linux:
 gcc -O2 -fPIC -Wall -g -DBUILD_DLL -I/root/lua52/src/lua-5.2.4/src/ -c lprng.c -o lprng.o
 
 gcc -shared -fPIC -Wl,--dll -L/root/lua52/src/lua-5.2.4/src/ lprng.o -o LPRNG.so -static-libgcc -llua
+
+VS: /fp:strict
