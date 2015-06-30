@@ -96,7 +96,7 @@ static int randomseed(lua_State *L) {
 static const struct luaL_Reg prng_funcs[] = { { "randomseed", randomseed },
 		{ "random", random }, { NULL, NULL } };
 
-LUALIB_API int luaopen_LPRNG(lua_State *L) {
+__declspec(dllexport) int luaopen_LPRNG(lua_State *L) {
     luaL_newlibtable(L,prng_funcs);
 	struct RandomState *rs;
 	rs = (struct RandomState *) lua_newuserdata(L, sizeof(struct RandomState));
