@@ -1,3 +1,7 @@
+从luajit里移植出来的 LPRNG算法，可以从lua调用。
+手机上运行luajit，但是luajit不支持大内存，所以当时服务器上跑的是lua，跟客户端需要用同一个种子跑出来相同的随机序列。
+所以把这个算法移植出来，让服务器跟客户端统一。
+
 # LPRNG
 Pseudorandom number generator transplant from luajit source code.
 
